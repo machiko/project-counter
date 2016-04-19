@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="project_counter" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +16,59 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5t3-CA-yd3">
+                                <rect key="frame" x="262" y="224" width="78" height="153"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="128"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eh2-I4-8Kt">
+                                <rect key="frame" x="50" y="51" width="61" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="Reset"/>
+                                <connections>
+                                    <action selector="resetCounter:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jfc-ae-LLd"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bj4-6K-hJb">
+                                <rect key="frame" x="279" y="385" width="42" height="44"/>
+                                <gestureRecognizers/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <state key="normal" title="Tap"/>
+                                <connections>
+                                    <action selector="addCounter:" destination="BYZ-38-t0r" eventType="touchUpInside" id="neM-3V-1fR"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="Eh2-I4-8Kt" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="31" id="5n9-Mb-0QT"/>
+                            <constraint firstItem="5t3-CA-yd3" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="1" id="Dxs-rf-SrS"/>
+                            <constraint firstItem="Bj4-6K-hJb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="IXh-Eh-OXx"/>
+                            <constraint firstItem="Bj4-6K-hJb" firstAttribute="top" secondItem="5t3-CA-yd3" secondAttribute="bottom" constant="8" symbolic="YES" id="dmR-b2-JtU"/>
+                            <constraint firstItem="Eh2-I4-8Kt" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="50" id="gJe-xz-xeX"/>
+                            <constraint firstItem="5t3-CA-yd3" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="lk1-pw-mgo"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="vlA-cP-ZR5" appends="YES" id="EWK-xK-KKD"/>
+                        </connections>
                     </view>
+                    <connections>
+                        <outlet property="addBtn" destination="Bj4-6K-hJb" id="gr9-5z-sHh"/>
+                        <outlet property="digitalLabel" destination="5t3-CA-yd3" id="Lx0-s7-hBQ"/>
+                        <outlet property="resetBtn" destination="Eh2-I4-8Kt" id="u5T-pZ-cPR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="vlA-cP-ZR5">
+                    <connections>
+                        <action selector="tapGesture:" destination="BYZ-38-t0r" id="9yV-pu-IaQ"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
+            <point key="canvasLocation" x="1056" y="410"/>
         </scene>
     </scenes>
 </document>
